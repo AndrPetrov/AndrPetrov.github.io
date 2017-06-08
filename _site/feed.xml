@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.4.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-06-08T12:11:53+03:00</updated><id>http://localhost:4000/</id><title type="html">Software engineer’s blog</title><subtitle>Andrei Piatrou developer blog</subtitle><entry><title type="html">Team best practices</title><link href="http://localhost:4000/2017/06/03/team-best-practices.html" rel="alternate" type="text/html" title="Team best practices" /><published>2017-06-03T00:00:00+03:00</published><updated>2017-06-03T00:00:00+03:00</updated><id>http://localhost:4000/2017/06/03/team-best-practices</id><content type="html" xml:base="http://localhost:4000/2017/06/03/team-best-practices.html">&lt;h3 id=&quot;table-of-content&quot;&gt;Table of content&lt;/h3&gt;
+&lt;!-- MarkdownTOC autolink=&quot;true&quot; bracket=&quot;round&quot; --&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;#gitflow&quot;&gt;GitFlow&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#branch-naming-and-commit-messages&quot;&gt;Branch naming and commit messages&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#githubflow&quot;&gt;GitHubFlow&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#branch-naming-and-commit-messages-1&quot;&gt;Branch naming and commit messages&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#pull-requests&quot;&gt;Pull requests&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#continuous-integration--continuous-delivery&quot;&gt;Continuous Integration / Continuous Delivery&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#static-code-analysis&quot;&gt;Static code analysis&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#tests&quot;&gt;Tests&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#versioning&quot;&gt;Versioning&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#communication&quot;&gt;Communication&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#our-developer-community&quot;&gt;Our developer community&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#being-professional-off-top&quot;&gt;Being professional (off-top)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- /MarkdownTOC --&gt;
+
+&lt;h3 id=&quot;gitflow&quot;&gt;GitFlow&lt;/h3&gt;
+&lt;p&gt;We use usual &lt;a href=&quot;http://nvie.com/posts/a-successful-git-branching-model/&quot;&gt;gitflow&lt;/a&gt; practices for compicated solutions with strict release, beta and and other special rules:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;master&lt;/code&gt; branch is used only for released sources&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;develop&lt;/code&gt; branch is used for development purposes&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;feature&lt;/code&gt; branch is used for new features&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;bugfix&lt;/code&gt; branch is used for bugfixes&lt;/li&gt;
+  &lt;li&gt;Direct commits for &lt;code class=&quot;highlighter-rouge&quot;&gt;master|develop&lt;/code&gt; are not allowed&lt;/li&gt;
+  &lt;li&gt;Every change should be done by pull request&lt;/li&gt;
+  &lt;li&gt;Also tags can be used for special cases&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&quot;branch-naming-and-commit-messages&quot;&gt;Branch naming and commit messages&lt;/h4&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;feature|bugfix&lt;/code&gt; branch have &lt;code class=&quot;highlighter-rouge&quot;&gt;feature|bugfix/PROJNAME-TICKET_ID:SHORT_DESCRIPTION&lt;/code&gt; naming pattern. This practice allows to link every branch and pull request with git history&lt;/li&gt;
+  &lt;li&gt;Commit messages should be descriptive and clear, see &lt;a href=&quot;https://chris.beams.io/posts/git-commit/&quot;&gt;this article&lt;/a&gt; and follow this practices&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;githubflow&quot;&gt;GitHubFlow&lt;/h3&gt;
+&lt;p&gt;However, GitFlow is considered overly complex.&lt;/p&gt;
+
+&lt;p&gt;So instead, people prefer using it’s simplified version: &lt;a href=&quot;https://lucamezzalira.com/2014/03/10/git-flow-vs-github-flow/&quot;&gt;githubflow&lt;/a&gt; (&lt;a href=&quot;https://habrahabr.ru/post/189046/&quot;&gt;translation&lt;/a&gt;).&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;master&lt;/code&gt; branch is used as main &lt;em&gt;stable&lt;/em&gt; branch&lt;/li&gt;
+  &lt;li&gt;Direct commits for &lt;code class=&quot;highlighter-rouge&quot;&gt;master|develop&lt;/code&gt; are not allowed&lt;/li&gt;
+  &lt;li&gt;Every change should be done by pull request&lt;/li&gt;
+  &lt;li&gt;Also tags can be used for special cases&lt;/li&gt;
+  &lt;li&gt;Additional branches (&lt;code class=&quot;highlighter-rouge&quot;&gt;staging&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;uat&lt;/code&gt;, etc.) can be created for deployment purposes&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&quot;branch-naming-and-commit-messages-1&quot;&gt;Branch naming and commit messages&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Commit messages follow &lt;code class=&quot;highlighter-rouge&quot;&gt;[JIRA_ID] SHORT_DESCRIPTION\n\nDETAILED_EXPLANATION&lt;/code&gt; pattern. Every commit should contain link to corresponding Jira ticket. Branch names does not have strictly defined pattern.&lt;/li&gt;
+  &lt;li&gt;In rare cases, when there is no Jira ticket exists, special &lt;code class=&quot;highlighter-rouge&quot;&gt;[DEV]&lt;/code&gt; prefix can be used&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;SHORT_DESCRIPTION&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;DETAILED_EXPLANATION&lt;/code&gt; parts of commit message should be descriptive and clear, see &lt;a href=&quot;https://chris.beams.io/posts/git-commit/&quot;&gt;this article&lt;/a&gt; and follow this practices&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;pull-requests&quot;&gt;Pull requests&lt;/h3&gt;
+&lt;p&gt;It is required to push your code by pull requests and every pull request should be reviewed by two or more team members. This practice is used to:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Share knowledge, code style and coding practices in both directions&lt;/li&gt;
+  &lt;li&gt;Avoid bugs and unclear and hard-to-understand code&lt;/li&gt;
+  &lt;li&gt;Run tests and linters for changed code&lt;/li&gt;
+  &lt;li&gt;Store clear changelog in git commit history&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;continuous-integration--continuous-delivery&quot;&gt;Continuous Integration / Continuous Delivery&lt;/h3&gt;
+&lt;p&gt;Every project should have its own CI/CD jobs and this approach gives:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Automated static code analysis, build and test &lt;code class=&quot;highlighter-rouge&quot;&gt;develop|master&lt;/code&gt; branches for any change&lt;/li&gt;
+  &lt;li&gt;Automated static code analysis, build and test for every pull request and notify source control system with its results&lt;/li&gt;
+  &lt;li&gt;Automated delivery from certain branches to any certain environment. Code that sits in git and was not delivered to users is useless and makes nobody happy&lt;/li&gt;
+  &lt;li&gt;Freedom from thoughts: “does my code pass tests and quality check, how to deliver my changes to users”&lt;/li&gt;
+  &lt;li&gt;Transparent development workflow, so developers can concentrate only on features and does not spend time on stuff that definitely should be automated&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Usually we use TeamCity (&lt;a href=&quot;https://git.itransition.com/projects/PROJECTALUDE/repos/teamcity-bootstrap/browse&quot;&gt;Automatic bootstrapper&lt;/a&gt;) or Jenkins (especially &lt;a href=&quot;https://jenkins.io/doc/book/pipeline/&quot;&gt;jenkins pipelines&lt;/a&gt;) for CI/CD purposes. This tools cover all requirements, has a lot of useful and open-source plugins and it is free.&lt;/p&gt;
+
+&lt;h3 id=&quot;static-code-analysis&quot;&gt;Static code analysis&lt;/h3&gt;
+&lt;p&gt;Every platform and language has its own great tools for static code analysis: &lt;a href=&quot;http://eslint.org/&quot;&gt;eslint&lt;/a&gt; for JS, &lt;a href=&quot;https://github.com/bbatsov/rubocop&quot;&gt;rubocop&lt;/a&gt; for ruby, &lt;a href=&quot;https://developer.android.com/studio/write/lint.html&quot;&gt;lint&lt;/a&gt; for Android Studio and etc. So please configure and use this tools in your coding workflow and follow its recommendations and rules.
+Also there are great tools such as &lt;a href=&quot;https://git.itransition.com/projects/PROJECTALUDE/repos/sonar/browse&quot;&gt;SonarQube&lt;/a&gt; that can do static code analysis, find potential bugs, calculate technical debt, visualize a lot of statistics for almost every language. It helps improve your coding skills and projects overall that you are working on. So configure SonarQube on your projects (in case if it was not done yet) and be happy! :smile:&lt;/p&gt;
+
+&lt;h3 id=&quot;tests&quot;&gt;Tests&lt;/h3&gt;
+&lt;p&gt;We greatly recommend to write unit- and integration tests for your code because:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;It is great documentation for your code&lt;/li&gt;
+  &lt;li&gt;It does not allow to break existing code&lt;/li&gt;
+  &lt;li&gt;Any developer can change any piece of code without fear and be sure that everything is working as expected and even better!&lt;/li&gt;
+  &lt;li&gt;Code is written faster so you have more time for cookies&lt;/li&gt;
+  &lt;li&gt;Team can (should) establish certain requirements for test coverage on CI server&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;versioning&quot;&gt;Versioning&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;http://semver.org/&quot;&gt;Semantic Versioning&lt;/a&gt; is a great practice for transparent and clear product versioning. It is flexible and satisfies almost any product requirements.&lt;/p&gt;
+
+&lt;h3 id=&quot;communication&quot;&gt;Communication&lt;/h3&gt;
+&lt;p&gt;Usually we use:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Slack or Skype for real-time communication and notifications from services&lt;/li&gt;
+  &lt;li&gt;Emails for more official and important messaging&lt;/li&gt;
+  &lt;li&gt;JIRA as progress, time and task tracking system&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;It is important to have real-time vision of plan, state and progress of whole company and to reach this goal we have to track our progress, notify about changes and resolve or concerns as soon as possible. Described communication and tracking systems allow us to do this so do not sit and wait when you will be asking but notify and ask. This is how &lt;a href=&quot;https://gist.github.com/staltz/868e7e9bc2a7b8c1f754&quot;&gt;reactive systems&lt;/a&gt; work and we have behave the same way.&lt;/p&gt;
+
+&lt;h3 id=&quot;our-developer-community&quot;&gt;Our developer community&lt;/h3&gt;
+&lt;p&gt;It is nice to know that you are not alone and can share your knowledge and ask your teammates for help. We set up technical-minutes (15 minute meeting a couple times a week) to share, discuss or ask about something. Also we have slack channels for this purposes so in case if you know or want to know something useful - feel free to contact with team mates! :smile:&lt;/p&gt;
+
+&lt;h3 id=&quot;being-professional-off-top&quot;&gt;Being professional (off-top)&lt;/h3&gt;
+&lt;p&gt;To be a good professional you have to learn, analyse, use best practices, methods and techniques and &lt;strong&gt;share&lt;/strong&gt; your knowledge with others. But being professional does not mean only write beautiful code and unit-tests, have a lot of experience in Java or JS, it means that you don’t try but just &lt;strong&gt;do&lt;/strong&gt;, take &lt;strong&gt;responsibility&lt;/strong&gt; for what you are doing and remember:&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+  &lt;img src=&quot;http://i3.kym-cdn.com/photos/images/facebook/000/933/845/c3a.jpg&quot; alt=&quot;responsibility&quot; width=&quot;300&quot; /&gt;
+&lt;/p&gt;</content><author><name></name></author><summary type="html">Table of content</summary></entry></feed>

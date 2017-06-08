@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Team best practices</title>
+  <meta name="description" content="Table of content">
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="canonical" href="http://localhost:4000/2017/06/03/team-best-practices.html">
+  <link rel="alternate" type="application/rss+xml" title="Software engineer&#39;s blog" href="/feed.xml">
+  
+  
+</head>
+
+
+  <body>
+
+    <header class="site-header" role="banner">
+
+  <div class="wrapper">
+    
+    
+    <a class="site-title" href="/">Software engineer&#39;s blog</a>
+  
+    
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          
+            
+            
+            <a class="page-link" href="/about/">About</a>
+            
+          
+            
+            
+            <a class="page-link" href="/">Home</a>
+            
+          
+            
+            
+          
+            
+            
+          
+        </div>
+      </nav>
+    
+  </div>
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Team best practices</h1>
+    <p class="post-meta">
+      <time datetime="2017-06-03T00:00:00+03:00" itemprop="datePublished">
+        
+        Jun 3, 2017
+      </time>
+      </p>
+  </header>
+
+  <div class="post-content" itemprop="articleBody">
+    <h3 id="table-of-content">Table of content</h3>
+<!-- MarkdownTOC autolink="true" bracket="round" -->
+
+<ul>
+  <li><a href="#gitflow">GitFlow</a>
+    <ul>
+      <li><a href="#branch-naming-and-commit-messages">Branch naming and commit messages</a></li>
+    </ul>
+  </li>
+  <li><a href="#githubflow">GitHubFlow</a>
+    <ul>
+      <li><a href="#branch-naming-and-commit-messages-1">Branch naming and commit messages</a></li>
+    </ul>
+  </li>
+  <li><a href="#pull-requests">Pull requests</a></li>
+  <li><a href="#continuous-integration--continuous-delivery">Continuous Integration / Continuous Delivery</a></li>
+  <li><a href="#static-code-analysis">Static code analysis</a></li>
+  <li><a href="#tests">Tests</a></li>
+  <li><a href="#versioning">Versioning</a></li>
+  <li><a href="#communication">Communication</a></li>
+  <li><a href="#our-developer-community">Our developer community</a></li>
+  <li><a href="#being-professional-off-top">Being professional (off-top)</a></li>
+</ul>
+
+<!-- /MarkdownTOC -->
+
+<h3 id="gitflow">GitFlow</h3>
+<p>We use usual <a href="http://nvie.com/posts/a-successful-git-branching-model/">gitflow</a> practices for compicated solutions with strict release, beta and and other special rules:</p>
+
+<ol>
+  <li><code class="highlighter-rouge">master</code> branch is used only for released sources</li>
+  <li><code class="highlighter-rouge">develop</code> branch is used for development purposes</li>
+  <li><code class="highlighter-rouge">feature</code> branch is used for new features</li>
+  <li><code class="highlighter-rouge">bugfix</code> branch is used for bugfixes</li>
+  <li>Direct commits for <code class="highlighter-rouge">master|develop</code> are not allowed</li>
+  <li>Every change should be done by pull request</li>
+  <li>Also tags can be used for special cases</li>
+</ol>
+
+<h4 id="branch-naming-and-commit-messages">Branch naming and commit messages</h4>
+<ol>
+  <li><code class="highlighter-rouge">feature|bugfix</code> branch have <code class="highlighter-rouge">feature|bugfix/PROJNAME-TICKET_ID:SHORT_DESCRIPTION</code> naming pattern. This practice allows to link every branch and pull request with git history</li>
+  <li>Commit messages should be descriptive and clear, see <a href="https://chris.beams.io/posts/git-commit/">this article</a> and follow this practices</li>
+</ol>
+
+<h3 id="githubflow">GitHubFlow</h3>
+<p>However, GitFlow is considered overly complex.</p>
+
+<p>So instead, people prefer using it’s simplified version: <a href="https://lucamezzalira.com/2014/03/10/git-flow-vs-github-flow/">githubflow</a> (<a href="https://habrahabr.ru/post/189046/">translation</a>).</p>
+
+<ol>
+  <li><code class="highlighter-rouge">master</code> branch is used as main <em>stable</em> branch</li>
+  <li>Direct commits for <code class="highlighter-rouge">master|develop</code> are not allowed</li>
+  <li>Every change should be done by pull request</li>
+  <li>Also tags can be used for special cases</li>
+  <li>Additional branches (<code class="highlighter-rouge">staging</code>, <code class="highlighter-rouge">uat</code>, etc.) can be created for deployment purposes</li>
+</ol>
+
+<h4 id="branch-naming-and-commit-messages-1">Branch naming and commit messages</h4>
+
+<ol>
+  <li>Commit messages follow <code class="highlighter-rouge">[JIRA_ID] SHORT_DESCRIPTION\n\nDETAILED_EXPLANATION</code> pattern. Every commit should contain link to corresponding Jira ticket. Branch names does not have strictly defined pattern.</li>
+  <li>In rare cases, when there is no Jira ticket exists, special <code class="highlighter-rouge">[DEV]</code> prefix can be used</li>
+  <li><code class="highlighter-rouge">SHORT_DESCRIPTION</code> and <code class="highlighter-rouge">DETAILED_EXPLANATION</code> parts of commit message should be descriptive and clear, see <a href="https://chris.beams.io/posts/git-commit/">this article</a> and follow this practices</li>
+</ol>
+
+<h3 id="pull-requests">Pull requests</h3>
+<p>It is required to push your code by pull requests and every pull request should be reviewed by two or more team members. This practice is used to:</p>
+
+<ol>
+  <li>Share knowledge, code style and coding practices in both directions</li>
+  <li>Avoid bugs and unclear and hard-to-understand code</li>
+  <li>Run tests and linters for changed code</li>
+  <li>Store clear changelog in git commit history</li>
+</ol>
+
+<h3 id="continuous-integration--continuous-delivery">Continuous Integration / Continuous Delivery</h3>
+<p>Every project should have its own CI/CD jobs and this approach gives:</p>
+
+<ol>
+  <li>Automated static code analysis, build and test <code class="highlighter-rouge">develop|master</code> branches for any change</li>
+  <li>Automated static code analysis, build and test for every pull request and notify source control system with its results</li>
+  <li>Automated delivery from certain branches to any certain environment. Code that sits in git and was not delivered to users is useless and makes nobody happy</li>
+  <li>Freedom from thoughts: “does my code pass tests and quality check, how to deliver my changes to users”</li>
+  <li>Transparent development workflow, so developers can concentrate only on features and does not spend time on stuff that definitely should be automated</li>
+</ol>
+
+<p>Usually we use TeamCity (<a href="https://git.itransition.com/projects/PROJECTALUDE/repos/teamcity-bootstrap/browse">Automatic bootstrapper</a>) or Jenkins (especially <a href="https://jenkins.io/doc/book/pipeline/">jenkins pipelines</a>) for CI/CD purposes. This tools cover all requirements, has a lot of useful and open-source plugins and it is free.</p>
+
+<h3 id="static-code-analysis">Static code analysis</h3>
+<p>Every platform and language has its own great tools for static code analysis: <a href="http://eslint.org/">eslint</a> for JS, <a href="https://github.com/bbatsov/rubocop">rubocop</a> for ruby, <a href="https://developer.android.com/studio/write/lint.html">lint</a> for Android Studio and etc. So please configure and use this tools in your coding workflow and follow its recommendations and rules.
+Also there are great tools such as <a href="https://git.itransition.com/projects/PROJECTALUDE/repos/sonar/browse">SonarQube</a> that can do static code analysis, find potential bugs, calculate technical debt, visualize a lot of statistics for almost every language. It helps improve your coding skills and projects overall that you are working on. So configure SonarQube on your projects (in case if it was not done yet) and be happy! :smile:</p>
+
+<h3 id="tests">Tests</h3>
+<p>We greatly recommend to write unit- and integration tests for your code because:</p>
+<ol>
+  <li>It is great documentation for your code</li>
+  <li>It does not allow to break existing code</li>
+  <li>Any developer can change any piece of code without fear and be sure that everything is working as expected and even better!</li>
+  <li>Code is written faster so you have more time for cookies</li>
+  <li>Team can (should) establish certain requirements for test coverage on CI server</li>
+</ol>
+
+<h3 id="versioning">Versioning</h3>
+<p><a href="http://semver.org/">Semantic Versioning</a> is a great practice for transparent and clear product versioning. It is flexible and satisfies almost any product requirements.</p>
+
+<h3 id="communication">Communication</h3>
+<p>Usually we use:</p>
+<ol>
+  <li>Slack or Skype for real-time communication and notifications from services</li>
+  <li>Emails for more official and important messaging</li>
+  <li>JIRA as progress, time and task tracking system</li>
+</ol>
+
+<p>It is important to have real-time vision of plan, state and progress of whole company and to reach this goal we have to track our progress, notify about changes and resolve or concerns as soon as possible. Described communication and tracking systems allow us to do this so do not sit and wait when you will be asking but notify and ask. This is how <a href="https://gist.github.com/staltz/868e7e9bc2a7b8c1f754">reactive systems</a> work and we have behave the same way.</p>
+
+<h3 id="our-developer-community">Our developer community</h3>
+<p>It is nice to know that you are not alone and can share your knowledge and ask your teammates for help. We set up technical-minutes (15 minute meeting a couple times a week) to share, discuss or ask about something. Also we have slack channels for this purposes so in case if you know or want to know something useful - feel free to contact with team mates! :smile:</p>
+
+<h3 id="being-professional-off-top">Being professional (off-top)</h3>
+<p>To be a good professional you have to learn, analyse, use best practices, methods and techniques and <strong>share</strong> your knowledge with others. But being professional does not mean only write beautiful code and unit-tests, have a lot of experience in Java or JS, it means that you don’t try but just <strong>do</strong>, take <strong>responsibility</strong> for what you are doing and remember:</p>
+
+<p align="center">
+  <img src="http://i3.kym-cdn.com/photos/images/facebook/000/933/845/c3a.jpg" alt="responsibility" width="300" />
+</p>
+
+
+  </div>
+
+  
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Software engineer&#39;s blog</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>
+            
+              Software engineer&#39;s blog
+            
+            </li>
+            
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+
+          
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>Andrei Piatrou developer blog</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

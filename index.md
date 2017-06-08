@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: Home
 ---
 
@@ -11,8 +11,7 @@ You can find something useful for you in my blog posts.
 #### [Team best practices][link_teambestpractices]
 
 #### My contacts
-
-Telegram: @AndreiPiatrou
+Telegram: @AndreiPiatrou /
 Phone: +375-29-112-92-69
 
-[link_teambestpractices]: posts/team-best-practices.html
+[link_teambestpractices]: {{ site.baseurl }}{% post_url 2017-06-03-team-best-practices %}
