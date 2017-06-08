@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Time managenent
+title: Time management
 description: How I started to use time management tricks
 ---
 
