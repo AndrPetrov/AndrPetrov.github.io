@@ -1,17 +1,8 @@
 ---
-layout: default
-title: Home
+# You don't need to edit this file, it's empty on purpose.
+# Edit theme's home layout instead if you wanna make some changes
+# See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+layout: home
 ---
 
-Welcome to my github.io blog!
-I'm Andrei Piatrou from Minsk, Belarus. I'm a software engineer.
-
-You can find something useful for you in my blog posts.
-
-#### [Team best practices][link_teambestpractices]
-
-#### My contacts
-Telegram: @AndreiPiatrou /
-Phone: +375-29-112-92-69
-
-[link_teambestpractices]: {{ site.baseurl }}{% post_url 2017-06-03-team-best-practices %}
+#### My name is Andrei Piatrou and I'm from Minsk, Belarus. I'm a Software Engineer and this is my little blog about everything.

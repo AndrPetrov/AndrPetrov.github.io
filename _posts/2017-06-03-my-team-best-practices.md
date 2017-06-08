@@ -1,8 +1,8 @@
 ---
-title: Team best practices
+layout: post
+title: My team best practices
 ---
 
-### Table of content
 <!-- MarkdownTOC autolink="true" bracket="round" -->
 
 - [GitFlow](#gitflow)
