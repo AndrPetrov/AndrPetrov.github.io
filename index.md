@@ -5,4 +5,4 @@
 layout: home
 ---
 
-#### My name is Andrei Piatrou and I'm from Minsk, Belarus. I'm a Software Engineer and this is my little blog about everything.
+#### Hi! My name is Andrei Piatrou and I'm from Minsk, Belarus. I'm a Software Engineer and this is my little blog about everything.
