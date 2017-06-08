@@ -91,7 +91,7 @@ We greatly recommend to write unit- and integration tests for your code because:
 Usually we use:
 1. Slack or Skype for real-time communication and notifications from services
 2. Emails for more official and important messaging
-3. JIRA as progress, time and task tracking system
+3. JIRA/github as progress, time and task tracking system
 
 It is important to have real-time vision of plan, state and progress of whole company and to reach this goal we have to track our progress, notify about changes and resolve concerns as soon as possible. Described communication and tracking systems allow us to do this so do not sit and wait when your concern will be resolved or you will be asking but ask and let others know. This is how [reactive systems][link_reactive_systems] work and we have behave the same way.
 
