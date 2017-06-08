@@ -15,4 +15,4 @@ You can find something useful for you in my blog posts.
 Telegram: @AndreiPiatrou
 Phone: +375-29-112-92-69
 
-[link_teambestpractices]: [/posts/team-best-practices.html]
+[link_teambestpractices]: posts/team-best-practices.html
