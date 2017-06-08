@@ -11,6 +11,7 @@ description: How I started to use time management tricks
 - [Tools that I use](#tools-that-i-use)
 	- [Todoist](#todoist)
 	- [Usual calendar](#usual-calendar)
+- [Sum up](#sum-up)
 
 <!-- /MarkdownTOC -->
 
@@ -40,6 +41,9 @@ I have tried a couple of web apps and mobile application for task management and
 
 #### Usual calendar
 Everybody uses calendars but if you itegrate todoist into your calendar this bundle becomes really powerful.
+
+### Sum up
+Knowledge from that book and described tools are very useful for me in everyday activities and I hope you can find something interesting in them for you too.
 
 [link_jedai_book]: https://oz.by/books/more10584051.html
 [link_todoist]: https://todoist.com
